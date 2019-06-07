@@ -3,7 +3,8 @@ export class bscroll{
     // 初始化
     init(){
         this.bscroll= new BScroll('main',{
-            probeType:3
+            probeType:3,
+            click:true
         })
         this.bindEvent()
     }

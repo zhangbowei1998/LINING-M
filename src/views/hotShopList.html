@@ -1,28 +1,27 @@
 <ul>
-    <% for(var i = 1 ; i < 4 ; i ++){%>
-    <li class="active">
+    <% for(var i = 0 ; i < data.length ; i ++){%>
+    <li <% if (i === 0) { %> class="active" <% } %>>
         <ul class="goods-group">
-            <% for(var j = 1 ; j < 4 ; j ++){%>
+            <% for(var j = 0 ; j < data[i].length ; j ++){%>
             <li>
-                <%for(var k = 0 ; k < data[i*j].length ; k ++){%>
+                <%for(var k = 0 ; k < data[i][j].length ; k ++){%>
                 <div>
                     <a href="">
-                        <img src="<%= data[i*j][k]['mainPic'] %>" alt="">
+                        <img src="<%= data[i][j][k]['mainPic'] %>" alt="">
                         <div class="zhijiang">
                             <p>直降</p>
-                            <p></p>
+                            <p><%= data[i][j][k]['discountPrice'] - data[i][j][k]['bargainPrice'] %></p>
                         </div>
                     </a>
                     <div class="message">
-                        <p></p>
+                        <p><%= $imports.reg(data[i][j][k]['goodsName'],data[i][j][k]['sku'])%></p>
                         <div class="shop-price">
-                            <span>￥<i></i></span>
+                            <span>￥<i><%= data[i][j][k]['price'] %></i></span>
                             <button>立即购买</button>
                         </div>
 
 
                     </div>
-
                 </div>
                 <%}%>
             </li>

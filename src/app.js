@@ -2,6 +2,9 @@ const indexTpl = require('./views/index.html')
 import {bscroll} from './controllers/bscroll'
 import fetch from './models/fetch'
 import renderedHotGd from './controllers/renderedHotGd'
+import renderedClearanceGd from './controllers/renderedClearanceGd'
+import renderedBargainGd from './controllers/renderedBargainGd'
+
 const renderedIndexTpl = template.render(indexTpl)
 
 document.querySelector('#app').innerHTML = renderedIndexTpl
@@ -16,9 +19,13 @@ async function loadData(){
     while(_data.length !== 0){
         data.push(_data.splice(0,3))
     }
-    const hotGoodsData = data.slice(0,9);
+    const hotGoodsData = data.splice(0,9)
     renderedHotGd.renderedHotGd(hotGoodsData)
-
+    const clearanceGoodsData = data.splice(0,3)
+    renderedClearanceGd.renderedClearanceGd(clearanceGoodsData)
+    const bargainGoodsData = data.splice(0,3)
+    renderedBargainGd.renderedBargainGd(bargainGoodsData)
+    console.log(data)
 
 }
 // $.ajax({
