@@ -4,6 +4,7 @@ import fetch from './models/fetch'
 import renderedHotGd from './controllers/renderedHotGd'
 import renderedClearanceGd from './controllers/renderedClearanceGd'
 import renderedBargainGd from './controllers/renderedBargainGd'
+import renderSeriesGd from './controllers/randerSeriseGd'
 
 const renderedIndexTpl = template.render(indexTpl)
 
@@ -25,7 +26,30 @@ async function loadData(){
     renderedClearanceGd.renderedClearanceGd(clearanceGoodsData)
     const bargainGoodsData = data.splice(0,3)
     renderedBargainGd.renderedBargainGd(bargainGoodsData)
-    console.log(data)
+    const seriesData = data.splice(0,6)
+    var  _seriesData = []
+    var  _dataserise = []
+    seriesData.forEach((res)=>{
+        res.forEach((res)=>{
+            _dataserise.push(res)
+        })
+    })
+    var _temporaryData = []
+    _dataserise.forEach((res)=>{
+        _temporaryData.push(res)
+        if(_temporaryData.length === 4){
+            _seriesData.push(_temporaryData)
+            _temporaryData = []
+        }
+    }) 
+    renderSeriesGd.renderSeriesGd(_seriesData)
+    let moreSeriesData = []
+    while(data.length){
+        moreSeriesData.push(data.splice(0,6))
+    }
+    console.log(moreSeriesData.splice(0,4))
+    
+
 
 }
 // $.ajax({

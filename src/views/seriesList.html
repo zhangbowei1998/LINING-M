@@ -1,0 +1,10 @@
+<% for(var i = 0 ; i < data.length ; i ++){%>
+<div class="series">
+    <img src="https://cdns.lining.com/postsystem/docroot/images/cps/2019-5/618-2_wap-1<%=i+1%>.jpg" alt="">
+    <%for(var j = 0 ; j < data[i].length ; j ++){%>
+    <a href="">
+        <span>￥<i><%=data[i][j]['price']%></i></span>
+    </a>
+    <%}%>
+</div>
+<%}%>
