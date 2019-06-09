@@ -5,6 +5,7 @@ import renderedHotGd from './controllers/renderedHotGd'
 import renderedClearanceGd from './controllers/renderedClearanceGd'
 import renderedBargainGd from './controllers/renderedBargainGd'
 import renderSeriesGd from './controllers/randerSeriseGd'
+import renderMoreSeriseGd from './controllers/renderMoreSeriseGd'
 
 const renderedIndexTpl = template.render(indexTpl)
 
@@ -47,10 +48,7 @@ async function loadData(){
     while(data.length){
         moreSeriesData.push(data.splice(0,6))
     }
-    console.log(moreSeriesData.splice(0,4))
-    
-
-
+    renderMoreSeriseGd.renderMoreSeriseGd(moreSeriesData.splice(0,4))
 }
 // $.ajax({
 //     url:'/api/wap/indexLoadPrice.html',

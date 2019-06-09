@@ -11,6 +11,7 @@ export default class Tab{
         let that = this
         this.controlList.on('click','li',function(){
             let index = $(this).index()
+            console.log(index)
             $(this).addClass('active').siblings().removeClass('active')
             that.showList.eq(index).addClass('active').siblings().removeClass('active')
         })  
