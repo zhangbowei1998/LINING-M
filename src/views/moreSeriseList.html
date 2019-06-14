@@ -45,7 +45,7 @@
                         <% for(var l = 3 ; l < 6 ; l ++){%>
                             <li>
                                 <%for(var m = 0 ; m < data[i][l].length ; m ++){%>
-                            <div>
+                            <div >
                                 <div class="goods-item">
                                     <a href="">
                                         <img src="<%= data[i][l][m]['mainPic']%>"
@@ -54,7 +54,7 @@
                                     <p><%= $imports.reg(data[i][l][m]['goodsName'],data[i][l][m]['sku'])%></p>
                                     <div class="goods-price">
                                         <span>￥<i><%= data[i][l][m]['price']%></i></span>
-                                        <button>立即购买</button>
+                                        <button data-id="<%=data[i][l][m]['sku']%>"  class="position-list">立即购买</button>
                                     </div>
                                 </div>
                             </div>

@@ -10,7 +10,6 @@ export default{
     const renderMoreSeriseTpl = template.render(moreSeriseGdTpl,{data})
 
     $('.moreSeries').html(renderMoreSeriseTpl)
-    console.log($('.shop-tab .tab-control>li>a'))
     class TabB extends Tab {
         bindEvent(){
             let that = this
